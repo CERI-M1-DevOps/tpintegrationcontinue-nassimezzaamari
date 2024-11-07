@@ -15,7 +15,8 @@ public class ListeSimple {
 
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
-        while (courant != null && courant.getElement() != element)
+
+        while (courant != null && !courant.getElement().equals(element))
             courant = courant.getSuivant();
         if (courant != null)
             courant.setElement(nouvelleValeur);
@@ -64,7 +65,7 @@ public class ListeSimple {
     }
 
     public void supprimeTous(int element) {
-       tete = supprimeTousRecurs(element, tete);
+        tete = supprimeTousRecurs(element, tete);
     }
 
     public Noeud supprimeTousRecurs(Object element, Noeud tete) {
@@ -107,7 +108,7 @@ public class ListeSimple {
     }
 
     public Noeud getPrecedent(Noeud r) {
-    // la liste n'est pas vide puisqu'on transmet un Node de la liste et le Node existe obligatoirement
+        // la liste n'est pas vide puisqu'on transmet un Node de la liste et le Node existe obligatoirement
         Noeud precedent = tete;
         Noeud courant = precedent.getSuivant();
         while (courant != r) {
@@ -132,7 +133,7 @@ public class ListeSimple {
             precedentR2.setSuivant(tete);
             tete = r2;
         }
-        else {
+        else  {
             precedentR1 = getPrecedent(r1);
             precedentR1.setSuivant(tete);
             tete = r1;
