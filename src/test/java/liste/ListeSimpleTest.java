@@ -296,6 +296,10 @@ class ListeSimpleTest {
         assertEquals("ListeSimple(Noeud(1), Noeud(2), Noeud(3), Noeud(4), Noeud(5))", listeATester.toString());
     }
 
+    @Test
+    void avantDernierListeVide() {
+        assertNull(listeATester.getAvantDernier());
+    }
 
 
 }
