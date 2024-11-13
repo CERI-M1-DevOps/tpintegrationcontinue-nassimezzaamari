@@ -4,15 +4,29 @@ public class ListeSimple {
     private long size;
     Noeud tete;
 
+    /**
+     * Description de la méthode
+     * @return Description de la valeur retournée
+     */
     public long getSize() {
         return size;
     }
 
+    /**
+     * Description de la méthode
+     * @param element description du premier paramètre
+
+     */
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
     }
 
+    /**
+     * Description de la méthode
+     * @param element description du premier paramètre
+     * @param nouvelleValeur description du second paramètre
+     */
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
 
@@ -44,6 +58,10 @@ public class ListeSimple {
         return sb.toString();
     }
 
+    /**
+     * Description de la méthode
+     * @param element description du premier paramètre
+     */
     public void supprimePremier(Object element) {
         if (tete != null) {
             if (tete.getElement() == element) {
