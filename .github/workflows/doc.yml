@@ -1,0 +1,33 @@
+name: doc
+
+on:
+  push:
+    branches: "main"
+  pull_request:
+    types: [ closed ]
+
+
+permissions :
+  contents: write
+
+
+jobs:
+  doc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Java 21 with corretto
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'corretto'
+
+
+      - name: doccc
+        run: mvn -B javadoc::javadoc
+      - name: Publish website
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/reports/apidocs/
